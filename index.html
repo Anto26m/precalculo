@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Resumen de Precálculo</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1b2433;--mu:#5b6678;--ac:#12306b;--bd:#dfe3ec;--hl:#e8eefc;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10151f;--card:#18202e;--tx:#e8ecf4;--mu:#9aa6ba;--ac:#8fb0ff;--bd:#2a3447;--hl:#1f2c47}}
+:root[data-theme="dark"]{--bg:#10151f;--card:#18202e;--tx:#e8ecf4;--mu:#9aa6ba;--ac:#8fb0ff;--bd:#2a3447;--hl:#1f2c47}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:20px 16px 80px}
+h1{font-size:1.7rem;color:var(--ac);margin:.2em 0}
+.sub{color:var(--mu);margin:0 0 18px}
+h2{font-size:1.2rem;color:var(--ac);border-bottom:2px solid var(--bd);padding-bottom:4px;margin:34px 0 12px}
+h2 small{color:var(--mu);font-weight:400;font-size:.8rem}
+.idx{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:6px 16px 12px}
+.idx h3{margin:12px 0 4px;font-size:.95rem;color:var(--ac)}
+.idx h3 small{color:var(--mu);font-weight:400}
+.idx a{display:inline-block;margin:2px 6px 2px 0;padding:2px 9px;border-radius:99px;background:var(--hl);color:var(--tx);text-decoration:none;font-size:.88rem}
+.idx a:hover{outline:1px solid var(--ac)}
+.t{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 16px;margin:12px 0}
+.t:target{outline:2px solid var(--ac)}
+.t h3{margin:0 0 6px;font-size:1.05rem}
+.t p{margin:6px 0}
+.l{font-weight:700;color:var(--ac)}
+.e{background:var(--hl);border-radius:8px;padding:6px 10px}
+.b{font-size:.82rem;text-decoration:none;color:var(--ac)}
+#up{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--ac);color:var(--bg);padding:9px 14px;border-radius:99px;text-decoration:none;font-weight:600;box-shadow:0 2px 8px #0004}
+</style></head><body><main>
+<h1 id="inicio">Resumen de Precálculo</h1>
+<p class="sub">Un tema por bloque: definición y ejemplo. Toca un tema del índice para ir a él; cada bloque tiene «↑ Índice» para volver.</p>
+<section class="idx" id="indice"><h2 style="margin:8px 0;border:0">Índice</h2><div id="ix"></div></section>
+<div id="body"></div>
+</main>
+<a id="up" href="#indice">↑ Índice</a>
+<script>
+var D=[
+["Semana 1 · Fundamentos","Clase_4",[
+["calculo","Cálculo e historia","Procedimiento lógico-matemático (algoritmo) para conocer las consecuencias de datos formalizados. Viene del latín calculus = piedra. Sus orígenes están en los griegos y el método de agotamiento.","El área de un círculo es el límite de las áreas de polígonos inscritos: A = lím(n→∞) Aₙ."],
+["numeros","Recta numérica y clasificación de números","La recta numérica es un gráfico unidimensional donde los enteros son puntos marcados a distancias iguales. Los conjuntos se anidan: ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ.","−3 ∈ ℤ; ½ ∈ ℚ; √2 y π son irracionales; 2 + 3i es complejo."],
+["polinomio","Polinomio","Expresión de variables y coeficientes con suma, resta y multiplicación, y exponentes enteros positivos. Según sus términos: monomio, binomio, trinomio.","6x² + 5x + 3 es polinomio; 8x² − 7x⁻³ y √(2x) + x³ no lo son."],
+["ecuacion","Ecuación","Igualdad entre dos expresiones algebraicas con una o más incógnitas; la solución es el valor que hace verdadera la igualdad (como una balanza).","2x + 3 = 11 → 2x = 8 → x = 4."],
+["factorizacion","Factorización","Descomponer una expresión algebraica en producto de factores. Casos: factor común, agrupación, trinomio cuadrado perfecto, diferencia de cuadrados, trinomios, cubos y potencias iguales.","4x³ + 8x⁴ − 32x⁵ = 4x³(1 + 2x − 8x²). 16a² − 49b² = (4a − 7b)(4a + 7b). a² + 2a − 15 = (a + 5)(a − 3). a³ + b³ = (a + b)(a² − ab + b²)."]]],
+["Semana 2 · Funciones y gráficas","Clase_5",[
+["funcion","Función, dominio y rango","Relación que asigna a cada x del dominio un único f(x). El rango es el conjunto de valores posibles de f(x).","f(x) = √(x + 2): x + 2 ≥ 0, dominio [−2, ∞)."],
+["biunivoca","Función biunívoca","f es biunívoca si nunca toma el mismo valor dos veces: x₁ ≠ x₂ ⇒ f(x₁) ≠ f(x₂).","f(x) = x³ sí lo es. f(x) = x² − 1 no, porque f(2) = f(−2)."],
+["simetria","Simetría: funciones pares e impares","Par: f(−x) = f(x) (simétrica al eje y). Impar: f(−x) = −f(x) (simétrica al origen).","f(x) = x⁵ + x → f(−x) = −f(x): impar. f(x) = 1 − x⁴: par. f(x) = 2x − x²: ninguna."],
+["inversa","Función inversa","Si f es biunívoca con dominio A y rango B, f⁻¹ tiene dominio B y rango A, con f⁻¹(y) = x ⇔ f(x) = y. Pasos: escribir y = f(x), despejar x, intercambiar x y y.","f(x) = x³ + 2 → f⁻¹(x) = ∛(x − 2). f(x) = (1 + 3x)/(5 − 2x) → f⁻¹(x) = (5x − 1)/(3 + 2x)."],
+["parametricas","Curvas paramétricas","Curvas descritas con x = f(t) y y = g(t), útiles cuando no cumplen la prueba de la recta vertical.","x = cos t, y = sen t describe la circunferencia de radio 1."],
+["distancia","Gráfica, distancia y pendiente","La gráfica de f es la de y = f(x). Distancia: d = √((x₂ − x₁)² + (y₂ − y₁)²). Recta: y − y₁ = m(x − x₁).","P₁(4, −1), P₂(−6, 3): d = √116 ≈ 10.77; m = −2/5; y = −(2/5)x + 3/5."],
+["lin-cuad","Función lineal, cuadrática y cúbica","Lineal: f(x) = mx + b (recta). Cuadrática: ax² + bx + c, a ≠ 0 (parábola con vértice; abre hacia arriba si a > 0). Cúbica: ax³ + bx² + cx + d, con 1 a 3 raíces reales.","f(x) = x² − 4x + 3: abre hacia arriba, vértice (2, −1), corta el eje y en 3."]]],
+["Semana 3 · Funciones polinomiales","Clase_6",[
+["polinomial","Función polinomial","f(x) = aₙxⁿ + … + a₁x + a₀; el mayor exponente n es el grado. Grado 0: recta horizontal; 1: recta; 2: parábola.","f(x) = 2x³ − x + 5 tiene grado 3."],
+["operaciones","Operaciones con funciones","Suma, resta, producto y cociente se hacen valor a valor: (f ± g)(x) = f(x) ± g(x), (fg)(x) = f(x)g(x), (f/g)(x) = f(x)/g(x) con g(x) ≠ 0.","f = 3x − 2, g = x³: (f + g) = x³ + 3x − 2; (fg) = 3x⁴ − 2x³; (f/g) = (3x − 2)/x³."],
+["compuesta","Función compuesta","(f∘g)(x) = f(g(x)): se evalúa primero la función de adentro y su resultado entra a la de afuera.","f = x² − 16, g = √x: (f∘g)(x) = x − 16 con dominio [0, ∞); (g∘f)(x) = √(x² − 16) con dominio (−∞, −4] ∪ [4, ∞)."],
+["division","División de polinomios","Dados f(x) y p(x) ≠ 0 existen únicos q(x) y r(x) con f = p·q + r, donde el grado de r es menor que el de p (o r = 0).","(x⁵ + 2x³ − x − 8) ÷ (x² − 2x + 1): cociente x³ + 2x² + 5x + 8, residuo 10x − 16."],
+["sintetica","Teorema del residuo y división sintética","Al dividir f(x) entre x − c, el residuo es f(c). La división sintética (regla de Ruffini) usa solo los coeficientes.","(2x⁴ + 5x³ − 2x − 8) ÷ (x + 3): coeficientes 2, −1, 3, −11; residuo 25 = f(−3)."],
+["ceros","Ceros de polinomios","Valores de x con P(x) = 0; son los cortes con el eje horizontal. Un polinomio de grado n tiene a lo sumo n ceros.","f(x) = x³ + 2x² − 5x − 6: x = 2 es cero; cociente x² + 4x + 3 = (x + 3)(x + 1). Ceros: −3, −1, 2."]]],
+["Semana 4 · Funciones racionales","Clase_8",[
+["racional","Función racional y asíntotas","f(x) = g(x)/h(x) con g, h polinomios; el dominio excluye los ceros de h. Asíntota vertical x = a: f → ±∞ cerca de a. Asíntota horizontal y = c: f → c cuando x → ±∞.","f(x) = 1/(x − 2): dominio ℝ∖{2}, asíntota vertical x = 2, horizontal y = 0."],
+["horizontal","Asíntota horizontal","Se comparan grados: numerador < denominador → y = 0; iguales → y = cociente de coeficientes principales; numerador > denominador → no hay.","(5x² + 1)/(3x² − 4): y = 5/3. (3x − 1)/(x² − x − 6): y = 0. (2x⁴ − 3x² + 5)/(x² + 1): ninguna."],
+["variacion","Variación (proporcionalidad)","Relación entre cantidades que cambian. Variación directa: y = kx, con k constante de proporcionalidad.","q directamente proporcional a z, q = 12 cuando z = 5: k = 12/5. Si z = 7, q = 16.8."]]],
+["Semana 5 · Funciones exponenciales","Clase_9",[
+["exponencial","Función exponencial","f(x) = aˣ con a > 0, a ≠ 1. Dominio ℝ, rango (0, ∞), pasa por (0, 1), asíntota en el eje x. Crece si a > 1 y decrece si 0 < a < 1.","f(x) = 2ˣ crece; f(x) = (1/2)ˣ decrece; ambas pasan por (0, 1)."],
+["ec-exp","Ecuaciones exponenciales y propiedades","Se igualan las bases y luego los exponentes. Propiedades: aⁿ·aᵐ = aⁿ⁺ᵐ, aⁿ/aᵐ = aⁿ⁻ᵐ, (aⁿ)ᵐ = aⁿᵐ, a⁰ = 1, a⁻ⁿ = 1/aⁿ.","27^(1−x) = 9^(x−2) → 3^(3−3x) = 3^(2x−4) → 3 − 3x = 2x − 4 → x = 7/5."],
+["interes","Interés compuesto","A = P(1 + r/n)^(nt): P capital, r tasa anual, n periodos por año, t años.","Q1,000 al 9% capitalizado mensualmente por 5 años: A = 1000(1 + 0.09/12)⁶⁰ ≈ Q1,565.68."],
+["natural","Exponencial natural y crecimiento","f(x) = eˣ con e ≈ 2.71828 (número de Euler); su inversa es ln x. Crecimiento continuo: q(t) = q₀·e^(rt).","100 bacterias que crecen 20% por hora: q(5) = 100·e¹ ≈ 272 bacterias."]]],
+["Semana 6 · Funciones logarítmicas","Clase_10",[
+["logaritmica","Función logarítmica","f(x) = logₐ(x) con a > 0, a ≠ 1; es la inversa de aˣ. Dominio (0, ∞), rango ℝ, asíntota vertical x = 0; crece si a > 1.","log₁₀100 = 2 porque 10² = 100; log₉3 = ½; log₇1 = 0; log₃(−2) no existe."],
+["ec-log","Propiedades y ecuaciones logarítmicas","logₐ1 = 0, logₐa = 1, log(xy) = log x + log y, log(x/y) = log x − log y, log xⁿ = n·log x.","log₁₀x + log₁₀(x − 3) = 1 → x(x − 3) = 10 → x = 5 (x = −2 se descarta)."],
+["cambio","Logaritmo común, natural y cambio de base","log x = log₁₀x, ln x = logₑx; logₐb = log b / log a. Para resolver aˣ = b se aplica logaritmo a ambos lados.","ln x = 4.7 → x = e⁴·⁷ ≈ 109.95. 3ˣ = 21 → x = log 21 / log 3 ≈ 2.77. log₂5 ≈ 2.32."]]],
+["Semana 7 · Funciones trigonométricas","Clase_11",[
+["angulos","Ángulos, grados y radianes","Agudo < 90°, recto 90°, obtuso entre 90° y 180°, llano 180°. Coterminales: mismo lado inicial y terminal. 1° = 60′, 1′ = 60″ y 180° = π rad.","3 rad = 3·(180°/π) ≈ 171°53′14.28″. 73.26° = 73°15′36″. Coterminales de 60°: 420°, −300°."],
+["arco","Longitud de arco y área de sector","s = r·θ y A = ½r²θ, con θ en radianes.","Arco de 10 cm en círculo de radio 4 cm: θ = 2.5 rad ≈ 143.24°; A = ½·16·2.5 = 20 cm²."],
+["trig","Funciones trigonométricas en el triángulo","Relacionan un ángulo con las razones entre los lados: sen θ = op/hip, cos θ = ad/hip, tan θ = op/ad.","A 25 pies de un asta, el ángulo es 30°: h = 25·tan 30° ≈ 14.43 pies."],
+["identidades","Identidades trigonométricas","tan θ = sen θ/cos θ; sen²θ + cos²θ = 1; 1 + tan²θ = sec²θ; 1 + cot²θ = csc²θ. Complementarios: sen 30° = cos 60°.","tan θ + cot θ = (sen²θ + cos²θ)/(sen θ cos θ) = 1/(sen θ cos θ) = sec θ·csc θ."]]],
+["Semana 8 · Funciones trigonométricas 2","Clase_13",[
+["negativos","Ángulos negativos, funciones pares e impares","Coseno y secante son pares; seno, cosecante, tangente y cotangente son impares: sen(−θ) = −sen θ, cos(−θ) = cos θ.","sen(−x)tan(−x) + cos(−x) = sen²x/cos x + cos x = 1/cos x = sec x."],
+["referencia","Ángulo de referencia","Para θ en posición estándar, θ_R es el ángulo agudo que el lado terminal forma con el eje x.","315° → 45°; −240° → 60°; 5π/6 → π/6."],
+["graficas","Gráficas: amplitud, periodo y fase","Para y = a·sen(bx + c): amplitud |a|, periodo 2π/b, desfase −c/b; un ciclo cumple 0 ≤ bx + c ≤ 2π.","y = 3 sen(2x + π/2): amplitud 3, periodo π, desfase −π/4, ciclo en [−π/4, 3π/4]."]]],
+["Semana 9 · Trigonometría analítica","Clase_14",[
+["suma-resta","Fórmulas de suma y resta","cos(α ± β) = cos α cos β ∓ sen α sen β; sen(α ± β) = sen α cos β ± cos α sen β; tan(α ± β) = (tan α ± tan β)/(1 ∓ tan α tan β).","cos(7π/12) = cos(π/3 + π/4) = (√2 − √6)/4 ≈ −0.2588."],
+["multiples","Ángulos múltiples y semiángulos","sen 2θ = 2 sen θ cos θ; cos 2θ = cos²θ − sen²θ = 2cos²θ − 1; sen²θ = (1 − cos 2θ)/2; cos²θ = (1 + cos 2θ)/2.","sen θ = 4/5 (agudo): sen 2θ = 24/25, cos 2θ = −7/25. Además cos 3θ = 4cos³θ − 3cos θ."]]],
+["Semana 10 · Producto-suma y ley de senos","Clase_15",[
+["prod-suma","Fórmulas de producto a suma y de suma a producto","sen α sen β = ½[cos(α−β) − cos(α+β)]; cos α cos β = ½[cos(α−β) + cos(α+β)]. Inversas: sen α + sen β = 2 sen((α+β)/2) cos((α−β)/2), entre otras.","sen 3x·sen x = ½(cos 2x − cos 4x). sen 5x − sen 3x = 2 cos 4x·sen x."],
+["senos","Ley de senos","En un triángulo: a/sen α = b/sen β = c/sen γ, con α + β + γ = 180°. Sirve para triángulos oblicuángulos.","α = 48°, γ = 57°, b = 47: β = 75°, a = 47·sen 48°/sen 75° ≈ 36.16, c ≈ 40.81."]]],
+["Semana 11 · Ley de cosenos, áreas y vectores","Clase_16",[
+["cosenos","Ley de cosenos","a² = b² + c² − 2bc·cos α (y análogas). Generaliza el teorema de Pitágoras a cualquier triángulo.","a = 90, b = 70, c = 40: cos α = −2/7 → α ≈ 106.60°, β ≈ 48.19°, γ ≈ 25.21°."],
+["area-tri","Área de un triángulo y fórmula de Herón","A = bh/2; A = ½ab·sen γ; Herón: A = √(s(s−a)(s−b)(s−c)) con s = (a+b+c)/2.","a = 4, b = 5, c = 7: s = 8, A = √(8·4·3·1) = √96 ≈ 9.80 m²."],
+["vectores","Vectores","Segmento orientado con magnitud, dirección y sentido. |a| = √(a₁² + a₂²); suma y producto por escalar se hacen por componentes; a₁ = |a|cos θ, a₂ = |a|sen θ.","a = ⟨5, −4⟩, b = ⟨−3, 2⟩: 2a − 3b = ⟨19, −14⟩. |b| = √13 ≈ 3.61."]]],
+["Semana 12 · Vectores y números complejos","Clase_17",[
+["punto","Producto punto","Producto escalar: a·b = a₁b₁ + a₂b₂ = |a||b|cos θ; da un número, no un vector. Es 0 si los vectores son ortogonales.","⟨−5, 3⟩·⟨2, 6⟩ = −10 + 18 = 8."],
+["cruz","Producto cruz","Producto vectorial en 3D; el resultado es un vector perpendicular a ambos. Se calcula con el determinante de i, j, k.","⟨2, −1, 3⟩ × ⟨1, 4, −2⟩ = −10i + 7j + 9k."],
+["complejos","Números complejos","z = a + bi con i² = −1. Módulo r = √(a² + b²); forma trigonométrica z = r(cos θ + i sen θ); exponencial z = r·e^(iθ).","z = 2 + 7i: r ≈ 7.28, θ = tan⁻¹(7/2) ≈ 1.29 rad → z ≈ 7.28(cos 1.29 + i sen 1.29)."],
+["demoivre","Teorema de De Moivre","[r(cos θ + i sen θ)]ⁿ = rⁿ(cos nθ + i sen nθ); permite calcular potencias y raíces de complejos.","(1 + i)²⁰: r = √2, θ = 45° → 2¹⁰(cos 900° + i sen 900°) = −1024."]]]
+];
+var ix="",bd="",n=0;
+D.forEach(function(g,gi){
+ var id="s"+(gi+1);
+ ix+='<h3>'+g[0]+' <small>('+g[1]+'.pdf)</small></h3>';
+ bd+='<h2 id="'+id+'">'+g[0]+' <small>· '+g[1]+'.pdf · <a class="b" href="#indice">↑ Índice</a></small></h2>';
+ g[2].forEach(function(t){
+  n++;
+  ix+='<a href="#'+t[0]+'">'+n+'. '+t[1]+'</a>';
+  bd+='<article class="t" id="'+t[0]+'"><h3>'+n+'. '+t[1]+'</h3><p><span class="l">Definición:</span> '+t[2]+'</p><p class="e"><span class="l">Ejemplo:</span> '+t[3]+'</p><a class="b" href="#indice">↑ Volver al índice</a></article>';
+ });
+});
+document.getElementById("ix").innerHTML=ix;
+document.getElementById("body").innerHTML=bd;
+</script></body></html>
