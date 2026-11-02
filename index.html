@@ -24,8 +24,26 @@ h2 small{color:var(--mu);font-weight:400;font-size:.8rem}
 .t p{margin:6px 0}
 .l{font-weight:700;color:var(--ac)}
 .e{background:var(--hl);border-radius:8px;padding:6px 10px}
-.b{font-size:.82rem;text-decoration:none;color:var(--ac)}
+.r{border-left:3px solid var(--ac);border-radius:0 8px 8px 0}.e{margin:8px 0!important}.b{font-size:.82rem;text-decoration:none;color:var(--ac)}
 #up{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--ac);color:var(--bg);padding:9px 14px;border-radius:99px;text-decoration:none;font-weight:600;box-shadow:0 2px 8px #0004}
+.ex{margin:14px 0 6px;border:1px solid var(--bd);border-radius:12px;overflow:hidden}
+.ex-h{background:var(--ac);color:var(--bg);font-weight:800;letter-spacing:.06em;font-size:.9rem;padding:6px 14px}
+.ex-b{padding:10px 16px;background:var(--hl)}
+.ex-b .tx{margin:6px 0}
+.pt{display:flex;gap:10px;align-items:baseline;margin:8px 0}
+.pt .k{flex:none;min-width:1.6em;font-weight:800;color:var(--ac)}
+.pt .m{font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:1.12rem;overflow-wrap:anywhere}
+.sol .ex-h{background:#1d6b4a}
+.sol .ex-b{background:var(--card)}
+.sol .k{color:#1d6b4a}
+.g{margin:10px 0 4px;padding:4px 10px;border-left:4px solid #1d6b4a;font-weight:800;color:#1d6b4a;background:var(--hl);border-radius:0 8px 8px 0}
+.st{display:flex;gap:10px;align-items:flex-start;margin:7px 0}
+.st .n{flex:none;width:1.6em;height:1.6em;border-radius:50%;background:#1d6b4a;color:#fff;font-size:.8rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.st .tx{flex:1;min-width:0;overflow-wrap:anywhere}
+.mt{margin:4px 0!important;font-family:"Cambria Math","STIX Two Math","Times New Roman",serif;font-size:1.18rem;text-align:center;padding:6px 8px;background:var(--hl);border-radius:8px;overflow-wrap:anywhere}
+.mt.arrow:before{content:"⇒ ";color:var(--mu)}
+.fin{margin:10px 0 2px;padding:8px 12px;border:2px solid #1d6b4a;border-radius:10px;font-weight:700}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .sol .ex-h{background:#2f8f64}:root:not([data-theme="light"]) .g,:root:not([data-theme="light"]) .sol .k{color:#6fd1a4}:root:not([data-theme="light"]) .g{border-color:#6fd1a4}:root:not([data-theme="light"]) .fin,:root:not([data-theme="light"]) .st .n{border-color:#6fd1a4}:root:not([data-theme="light"]) .st .n{background:#2f8f64}}
 </style></head><body><main>
 <h1 id="inicio">Resumen de Precálculo</h1>
 <p class="sub">Un tema por bloque: definición y ejemplo. Toca un tema del índice para ir a él; cada bloque tiene «↑ Índice» para volver.</p>
@@ -94,6 +112,195 @@ var D=[
 ["complejos","Números complejos","z = a + bi con i² = −1. Módulo r = √(a² + b²); forma trigonométrica z = r(cos θ + i sen θ); exponencial z = r·e^(iθ).","z = 2 + 7i: r ≈ 7.28, θ = tan⁻¹(7/2) ≈ 1.29 rad → z ≈ 7.28(cos 1.29 + i sen 1.29)."],
 ["demoivre","Teorema de De Moivre","[r(cos θ + i sen θ)]ⁿ = rⁿ(cos nθ + i sen nθ); permite calcular potencias y raíces de complejos.","(1 + i)²⁰: r = √2, θ = 45° → 2¹⁰(cos 900° + i sen 900°) = −1024."]]]
 ];
+var N={
+"calculo":["El <b>cálculo</b> (del latín <i>calculus</i>, «piedra», porque se contaba con piedritas) es el resultado de calcular: realizar operaciones para obtener las consecuencias de datos conocidos. En matemáticas es un procedimiento mecánico o algoritmo aplicado a datos formalizados y simbolizados. Sus orígenes tienen unos 2,500 años: los griegos hallaban áreas con el <b>método de agotamiento</b> (dividir una figura en polígonos y sumar sus áreas) y Eudoxo lo usó para probar la fórmula del área del círculo. Esa idea de aproximar con pasos cada vez más finos es el límite, base del <b>cálculo integral</b> (el problema del área) y del cálculo diferencial. Precálculo reúne las herramientas previas: álgebra, funciones y trigonometría.",
+"Aproximar el área de un círculo de radio 1 con polígonos regulares inscritos de n lados, usando Aₙ = (n/2)·sen(2π/n).",
+"n = 4: A = 2·sen 90° = 2.<br>n = 8: A = 4·sen 45° ≈ 2.828.<br>n = 100: A = 50·sen 3.6° ≈ 3.1395.<br>Al aumentar n, Aₙ se acerca al área real, así que A = lím(n→∞) Aₙ = π ≈ 3.1416."],
+"numeros":["La <b>recta numérica</b> es un gráfico unidimensional: una línea recta con puntos marcados a igual distancia que representan los enteros; a la derecha del 0 están los positivos y a la izquierda los negativos. Los números se clasifican en conjuntos que se contienen unos a otros: <b>naturales ℕ</b> (1, 2, 3…, con primos y compuestos), <b>enteros ℤ</b> (naturales, cero y negativos), <b>racionales ℚ</b> (fracciones p/q con q ≠ 0, incluye decimales finitos y periódicos), <b>irracionales</b> (decimales infinitos no periódicos: √2, π, e), <b>reales ℝ</b> (racionales más irracionales) y <b>complejos ℂ</b> (a + bi, con números imaginarios puros). Se cumple ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ ⊂ ℂ.",
+"Clasificar −7, 0.75, √5 y 12/3 en el conjunto más pequeño al que pertenece cada uno.",
+"−7 es entero negativo: ℤ.<br>0.75 = 3/4 es una fracción: ℚ.<br>√5 = 2.2360… no se repite ni termina: irracional, está en ℝ.<br>12/3 = 4 es natural: ℕ (y por tanto también ℤ, ℚ y ℝ)."],
+"polinomio":["Un <b>polinomio</b> (del latín <i>polynomium</i>, «muchos») es una expresión formada por un número finito de variables y constantes (coeficientes) que usa solo suma, resta, multiplicación y exponentes enteros positivos. Es una suma o resta de <b>monomios</b> (términos). Según el número de términos se llama monomio (4x³), binomio (3x + 5) o trinomio (x² + 2x + 1). El <b>grado</b> es el mayor exponente de la variable. No son polinomios las expresiones con variables en el denominador, exponentes negativos o fraccionarios, ni raíces de la variable.",
+"Decidir cuáles son polinomios: (a) 6x² + 5x + 3, (b) 8x² − 7x⁻³, (c) √5·x³ + 8, (d) √(2x) + x³. Dar el grado de los que lo sean.",
+"(a) Sí: exponentes 2, 1, 0 enteros positivos o cero. Grado 2.<br>(b) No: x⁻³ tiene exponente negativo.<br>(c) Sí: √5 es solo un coeficiente numérico. Grado 3.<br>(d) No: √(2x) = (2x)^(1/2) tiene exponente fraccionario."],
+"ecuacion":["Una <b>ecuación</b> es una igualdad matemática entre dos expresiones algebraicas que contiene una o más <b>incógnitas</b> (valores desconocidos, generalmente letras). Funciona como una balanza: ambos lados deben valer lo mismo. Tiene un signo igual que separa el <b>primer miembro</b> (izquierda) del <b>segundo miembro</b> (derecha). La <b>solución</b> es el valor que, al sustituir la incógnita, vuelve cierta la igualdad. Para despejar se hace la misma operación en ambos miembros, sin romper el equilibrio.",
+"Resolver 3(x − 2) + 5 = 2x + 7 y comprobar la solución.",
+"Distribuir: 3x − 6 + 5 = 2x + 7 → 3x − 1 = 2x + 7.<br>Pasar las x a un lado: 3x − 2x = 7 + 1 → x = 8.<br>Comprobación: 3(6) + 5 = 23 y 2(8) + 7 = 23. Se cumple la igualdad."],
+"factorizacion":["La <b>factorización</b> descompone una expresión algebraica (número, suma o resta, polinomio, matriz) en forma de producto. Casos vistos: <b>1)</b> factor común; <b>2)</b> factor común por agrupación; <b>3)</b> trinomio cuadrado perfecto a² ± 2ab + b² = (a ± b)²; <b>4)</b> diferencia de cuadrados a² − b² = (a − b)(a + b); <b>5)</b> trinomio simple x² + bx + c; <b>6)</b> trinomio compuesto ax² + bx + c; <b>7)</b> trinomio cuadrado perfecto por adición y sustracción (se suma y resta el término que falta); <b>8)</b> cubo perfecto de binomio (a ± b)³; <b>9)</b> suma o diferencia de cubos a³ ± b³ = (a ± b)(a² ∓ ab + b²); <b>10)</b> suma o diferencia de potencias iguales.",
+"Factorizar 49x⁴ − 151x²y⁴ + 81y⁸.",
+"Raíces de los extremos: √(49x⁴) = 7x² y √(81y⁸) = 9y⁴.<br>El término central debería ser −2·7x²·9y⁴ = −126x²y⁴, pero es −151x²y⁴: faltan 25x²y⁴.<br>Se suma y resta 25x²y⁴: (49x⁴ − 126x²y⁴ + 81y⁸) − 25x²y⁴ = (7x² − 9y⁴)² − 25x²y⁴.<br>Es diferencia de cuadrados: (7x² − 9y⁴ − 5xy²)(7x² − 9y⁴ + 5xy²)."],
+"funcion":["Una <b>función</b> f es una relación entre un conjunto X (<b>dominio</b>) y un conjunto Y (<b>codominio</b>) donde a cada elemento x del dominio le corresponde un único elemento f(x). El <b>rango</b> es el conjunto de todos los valores posibles de f(x). La letra que representa un número del dominio es la <b>variable independiente</b> y la que representa un valor del rango es la <b>variable dependiente</b>. Se puede representar con un diagrama de flechas, una tabla, una fórmula o una gráfica. Para hallar el dominio se excluyen los valores que dividen entre cero o dan raíz par de un negativo.",
+"Hallar el dominio de (a) f(x) = √(x + 2) y (b) g(x) = 1/(x² − 4).",
+"(a) La raíz exige x + 2 ≥ 0 → x ≥ −2. Dominio: [−2, ∞).<br>(b) El denominador no puede ser 0: x² − 4 = 0 → x = ±2. Dominio: todos los reales excepto 2 y −2, es decir (−∞, −2) ∪ (−2, 2) ∪ (2, ∞)."],
+"biunivoca":["Una función f es <b>biunívoca</b> (uno a uno) si nunca toma el mismo valor dos veces: x₁ ≠ x₂ implica f(x₁) ≠ f(x₂). Gráficamente, ninguna recta horizontal corta la gráfica más de una vez (prueba de la recta horizontal). Es la condición necesaria para que exista la función inversa. Toda función creciente en todo su dominio, o decreciente en todo su dominio, es biunívoca.",
+"¿Son biunívocas f(x) = 2x + 3 y g(x) = x² − 1?",
+"f: supongamos f(a) = f(b) → 2a + 3 = 2b + 3 → a = b. Valores distintos de x dan valores distintos de f: es biunívoca (recta creciente).<br>g: g(2) = 3 y g(−2) = 3 con 2 ≠ −2. Repite un valor: no es biunívoca (una recta horizontal corta la parábola dos veces)."],
+"simetria":["Una función es <b>par</b> si f(−x) = f(x) para todo x del dominio: su gráfica es simétrica respecto al eje y. Es <b>impar</b> si f(−x) = −f(x): su gráfica es simétrica respecto al origen. Si no cumple ninguna, no tiene esa simetría. Para decidir se calcula f(−x) y se compara con f(x) y con −f(x). Los polinomios con solo exponentes pares son pares; con solo impares, son impares.",
+"Determinar si son pares, impares o ninguna: (a) f(x) = x⁵ + x, (b) f(x) = 1 − x⁴, (c) f(x) = 2x − x².",
+"(a) f(−x) = (−x)⁵ + (−x) = −x⁵ − x = −f(x): <b>impar</b>.<br>(b) f(−x) = 1 − (−x)⁴ = 1 − x⁴ = f(x): <b>par</b>.<br>(c) f(−x) = −2x − x², que no es f(x) = 2x − x² ni −f(x) = −2x + x²: <b>ninguna</b>."],
+"inversa":["Si f es biunívoca con dominio A y rango B, su <b>función inversa</b> f⁻¹ tiene dominio B y rango A, y deshace el efecto de f: f⁻¹(y) = x ⇔ f(x) = y. Su gráfica es la reflexión de la de f respecto a la recta y = x. <b>Pasos:</b> (1) escribir y = f(x); (2) despejar x en términos de y; (3) intercambiar x y y; la ecuación resultante es y = f⁻¹(x). Atención: f⁻¹(x) no es 1/f(x).",
+"Hallar la inversa de f(x) = (1 + 3x)/(5 − 2x).",
+"Paso 1: y = (1 + 3x)/(5 − 2x).<br>Paso 2: y(5 − 2x) = 1 + 3x → 5y − 2xy = 1 + 3x → 5y − 1 = 3x + 2xy = x(3 + 2y) → x = (5y − 1)/(3 + 2y).<br>Paso 3: intercambiar: f⁻¹(x) = (5x − 1)/(3 + 2x)."],
+"parametricas":["Algunas curvas no se pueden escribir como y = f(x) porque no cumplen la prueba de la recta vertical. Se describen entonces con una <b>curva paramétrica</b>: un par de ecuaciones x = f(t) y y = g(t) donde el <b>parámetro</b> t (por ejemplo el tiempo) determina un punto (x, y) de la curva. Imagina una partícula que se mueve: en cada instante t está en una posición. Para ver la curva se puede eliminar el parámetro o tabular valores de t.",
+"Describir la curva x = 2cos t, y = 2sen t con 0 ≤ t ≤ 2π.",
+"Elevar al cuadrado y sumar: x² + y² = 4cos²t + 4sen²t = 4(cos²t + sen²t) = 4.<br>Es una circunferencia de radio 2 con centro en el origen. Puntos: t = 0 → (2, 0); t = π/2 → (0, 2); t = π → (−2, 0). Se recorre en sentido antihorario."],
+"distancia":["La <b>gráfica</b> de una función f es la gráfica de la ecuación y = f(x) para x en el dominio de f. En el plano de coordenadas, la <b>distancia</b> entre P₁(x₁, y₁) y P₂(x₂, y₂) es d = √((x₂ − x₁)² + (y₂ − y₁)²). La <b>pendiente</b> es m = (y₂ − y₁)/(x₂ − x₁) y la recta que pasa por un punto con pendiente m es y − y₁ = m(x − x₁).",
+"Para P₁(4, −1) y P₂(−6, 3) hallar (a) la distancia, (b) la pendiente, (c) la ecuación de la recta.",
+"(a) d = √((−6 − 4)² + (3 + 1)²) = √(100 + 16) = √116 ≈ 10.77.<br>(b) m = (3 − (−1))/(−6 − 4) = 4/(−10) = −2/5.<br>(c) y + 1 = −(2/5)(x − 4) → 5y + 5 = −2x + 8 → y = −(2/5)x + 3/5."],
+"lin-cuad":["<b>Lineal:</b> f(x) = mx + b; su gráfica es una recta con pendiente m y corte b con el eje y. <b>Cuadrática:</b> f(x) = ax² + bx + c con a ≠ 0; su gráfica es una parábola con <i>vértice</i> (en x = −b/2a), <i>eje de simetría</i> vertical, concavidad hacia arriba si a > 0 y hacia abajo si a < 0, y corte con el eje y en c. <b>Cúbica:</b> f(x) = ax³ + bx² + cx + d con a ≠ 0; dominio y rango son todos los reales, tiene un punto de inflexión, forma de «S» acostada y entre 1 y 3 raíces reales.",
+"Analizar la parábola f(x) = x² − 4x + 3: vértice, concavidad, cortes con los ejes.",
+"a = 1 > 0: abre hacia arriba.<br>Vértice: x = −(−4)/(2·1) = 2; f(2) = 4 − 8 + 3 = −1 → V(2, −1). Eje de simetría: x = 2.<br>Corte con y: f(0) = 3.<br>Cortes con x: x² − 4x + 3 = (x − 1)(x − 3) = 0 → x = 1 y x = 3."],
+"polinomial":["Una <b>función polinomial</b> es una regla escrita como suma de términos con potencias enteras no negativas: f(x) = aₙxⁿ + … + a₁x + a₀, con aₙ ≠ 0. El mayor exponente n es el <b>grado</b>, aₙ es el <b>coeficiente principal</b> y a₀ es el <b>término independiente</b>, que es el corte con el eje y. Grado 0: recta horizontal; grado 1: recta con pendiente a₁; grado 2: parábola de eje vertical. El grado y el signo de aₙ determinan el comportamiento en los extremos de la gráfica.",
+"Para f(x) = −2x⁴ + x³ − 5x + 1 dar el grado, el coeficiente principal, el corte con el eje y y el comportamiento en los extremos.",
+"Grado 4; coeficiente principal −2; término independiente 1, así que corta el eje y en (0, 1).<br>Grado par y coeficiente negativo: la gráfica baja hacia −∞ tanto cuando x → −∞ como cuando x → ∞."],
+"operaciones":["Con dos funciones f y g se forman nuevas funciones operando valor a valor: <b>suma</b> (f + g)(x) = f(x) + g(x); <b>diferencia</b> (f − g)(x) = f(x) − g(x); <b>producto</b> (fg)(x) = f(x)·g(x); <b>cociente</b> (f/g)(x) = f(x)/g(x), con g(x) ≠ 0. El dominio de la nueva función es la intersección de los dominios de f y g (y en el cociente se excluyen los ceros de g).",
+"Con f(x) = 4 − x² y g(x) = 1 + x, hallar f + g, f − g, f·g y f/g.",
+"(f + g)(x) = 4 − x² + 1 + x = −x² + x + 5.<br>(f − g)(x) = 4 − x² − 1 − x = −x² − x + 3.<br>(fg)(x) = (4 − x²)(1 + x) = 4 + 4x − x² − x³.<br>(f/g)(x) = (4 − x²)/(1 + x), con x ≠ −1."],
+"compuesta":["La <b>función compuesta</b> aplica dos funciones una tras otra: (f∘g)(x) = f(g(x)). Primero se evalúa x en la función de adentro g y el resultado entra a la de afuera f. En general f∘g ≠ g∘f. Su dominio son los x del dominio de g tales que g(x) está en el dominio de f.",
+"Con f(x) = x² − 16 y g(x) = √x, hallar f∘g y g∘f con sus dominios.",
+"(f∘g)(x) = f(√x) = (√x)² − 16 = x − 16. Como g exige x ≥ 0, el dominio es [0, ∞).<br>(g∘f)(x) = g(x² − 16) = √(x² − 16). Se necesita x² − 16 ≥ 0 → x ≤ −4 o x ≥ 4. Dominio: (−∞, −4] ∪ [4, ∞)."],
+"division":["El <b>algoritmo de la división</b> dice que, dados f(x) (dividendo) y p(x) ≠ 0 (divisor), existen únicos q(x) (cociente) y r(x) (residuo) tales que f(x) = p(x)·q(x) + r(x), donde el grado de r es menor que el de p o r = 0 (división exacta). Se procede como en la división larga numérica: se ordena y completa con ceros, se divide el primer término, se multiplica, se resta y se repite.",
+"Dividir f(x) = x⁵ + 2x³ − x − 8 entre p(x) = x² − 2x + 1.",
+"Completar: x⁵ + 0x⁴ + 2x³ + 0x² − x − 8.<br>x⁵/x² = x³ → resta x⁵ − 2x⁴ + x³ → queda 2x⁴ + x³.<br>2x⁴/x² = 2x² → resta 2x⁴ − 4x³ + 2x² → queda 5x³ − 2x² − x.<br>5x³/x² = 5x → resta 5x³ − 10x² + 5x → queda 8x² − 6x − 8.<br>8x²/x² = 8 → resta 8x² − 16x + 8 → queda 10x − 16.<br>Cociente x³ + 2x² + 5x + 8; residuo 10x − 16."],
+"sintetica":["<b>Teorema del residuo:</b> al dividir un polinomio f(x) entre x − c, el residuo es f(c). La <b>división sintética</b> (regla de Ruffini) es un método abreviado para dividir entre x − c que trabaja solo con coeficientes: se escribe c a un lado, se baja el primer coeficiente, se multiplica por c, se suma a la siguiente columna y se repite. El último número es el residuo y los anteriores son los coeficientes del cociente (un grado menos). Faltantes se escriben como 0.",
+"Dividir f(x) = 3x⁵ − 38x³ + 5x² − 1 entre x − 4.",
+"Coeficientes (con ceros): 3, 0, −38, 5, 0, −1; c = 4.<br>Bajar 3. 3·4 = 12 → 0 + 12 = 12. 12·4 = 48 → −38 + 48 = 10. 10·4 = 40 → 5 + 40 = 45. 45·4 = 180 → 0 + 180 = 180. 180·4 = 720 → −1 + 720 = 719.<br>Cociente 3x⁴ + 12x³ + 10x² + 45x + 180; residuo 719 = f(4)."],
+"ceros":["Los <b>ceros</b> de un polinomio son los valores de x con P(x) = 0. Gráficamente son los cortes de la gráfica con el eje horizontal. Un polinomio de grado n > 0 tiene a lo sumo n ceros complejos distintos. Si P(c) = 0, entonces x − c es un factor de P (teorema del factor), así que con división sintética se baja el grado y se factoriza el cociente. Los ceros enteros candidatos son divisores del término independiente.",
+"Hallar los ceros de f(x) = x³ + 2x² − 5x − 6.",
+"Probar divisores de 6: f(2) = 8 + 8 − 10 − 6 = 0, así que x = 2 es cero.<br>División sintética con 2: coeficientes 1, 2, −5, −6 → 1, 4, 3, residuo 0. Cociente x² + 4x + 3.<br>Factorizar: x² + 4x + 3 = (x + 3)(x + 1) → x = −3 y x = −1.<br>Ceros: −3, −1 y 2."]
+,
+"racional":["Una <b>función racional</b> es un cociente de polinomios, f(x) = g(x)/h(x). Su dominio son todos los reales excepto los ceros del denominador h(x). La recta x = a es una <b>asíntota vertical</b> si f(x) → ∞ o −∞ cuando x se acerca a a por la izquierda o la derecha (ocurre en los ceros del denominador que no se cancelan). La recta y = c es una <b>asíntota horizontal</b> si f(x) → c cuando x → ∞ o x → −∞. La gráfica se acerca a las asíntotas sin tocarlas en esos extremos.",
+"Dar dominio y asíntotas de f(x) = 1/(x − 2) y bosquejar su gráfica con una tabla.",
+"Dominio: x − 2 ≠ 0 → x ≠ 2, es decir ℝ∖{2}.<br>Asíntota vertical: x = 2 (el denominador se hace 0 y el numerador no).<br>Asíntota horizontal: cuando |x| crece, 1/(x − 2) → 0, así que y = 0.<br>Tabla: f(3) = 1, f(2.1) = 10, f(1) = −1, f(0) = −1/2, f(1.9) = −10. La rama derecha sube junto a x = 2 y la izquierda baja."],
+"horizontal":["Para hallar la asíntota horizontal de f(x) = g(x)/h(x) se comparan los grados del numerador (n) y del denominador (m): si n &lt; m, la asíntota es y = 0; si n = m, es y = (coeficiente principal de g)/(coeficiente principal de h); si n &gt; m, no hay asíntota horizontal. El método de fondo es dividir numerador y denominador entre la mayor potencia de x del denominador y ver a qué tiende la expresión cuando x → ±∞.",
+"Hallar la asíntota horizontal de (a) (5x² + 1)/(3x² − 4) y (b) (x⁴ − x² − 5)/(5x⁴ + 2).",
+"(a) Dividir entre x²: (5 + 1/x²)/(3 − 4/x²). Cuando x → ±∞ los términos 1/x² y 4/x² tienden a 0, así que f → 5/3. Asíntota: y = 5/3.<br>(b) Grados iguales (4 y 4): cociente de coeficientes principales 1/5. Asíntota: y = 1/5.<br>(Comparación: (2x⁴ − 3x² + 5)/(x² + 1) tiene numerador de mayor grado, por lo que no tiene asíntota horizontal.)"],
+"variacion":["La <b>variación</b> (o proporción) describe cómo cambian cantidades relacionadas. <b>Variación directa:</b> y = kx, donde k es la <b>constante de proporcionalidad</b>; si x aumenta, y aumenta en la misma razón. <b>Variación inversa:</b> y = k/x. También puede ser con una potencia (y = kx²) o combinada (conjunta). Para resolver: escribir la fórmula con k, usar el dato dado para hallar k y luego sustituir.",
+"S es directamente proporcional al cuadrado de x. Si x = 2, entonces S = 24. Hallar k, la fórmula y S cuando x = 5.",
+"Fórmula: S = k·x².<br>Con los datos: 24 = k·2² → k = 24/4 = 6.<br>Fórmula final: S = 6x².<br>Para x = 5: S = 6·25 = 150."],
+"exponencial":["Una <b>función exponencial</b> tiene la forma f(x) = aˣ, con base a &gt; 0 y a ≠ 1; la variable está en el exponente. Propiedades: dominio todos los reales; rango (0, ∞); siempre pasa por (0, 1); el eje x es asíntota horizontal. Si a &gt; 1 es creciente (crecimiento); si 0 &lt; a &lt; 1 es decreciente (decaimiento). Caso especial: la base e ≈ 2.718 (número de Euler).",
+"Graficar f(x) = 2ˣ y g(x) = (1/2)ˣ, y dar dominio, rango y asíntota.",
+"Tabla de f: x = −2, −1, 0, 1, 2, 3 → 1/4, 1/2, 1, 2, 4, 8. La curva crece rápido hacia la derecha y se pega al eje x hacia la izquierda.<br>Tabla de g: x = −2, −1, 0, 1, 2 → 4, 2, 1, 1/2, 1/4. Es la reflexión de f respecto al eje y, decreciente.<br>Ambas: dominio ℝ, rango (0, ∞), asíntota y = 0, corte en (0, 1)."],
+"ec-exp":["Una <b>ecuación exponencial</b> tiene la incógnita en el exponente. Si se pueden escribir ambos lados con la misma base, se igualan los exponentes. Propiedades: aⁿ·aᵐ = aⁿ⁺ᵐ; aⁿ/aᵐ = aⁿ⁻ᵐ; (aⁿ)ᵐ = aⁿᵐ; a⁰ = 1; a¹ = a; a⁻ⁿ = 1/aⁿ; (ab)ⁿ = aⁿbⁿ; (a/b)⁻ⁿ = (b/a)ⁿ. Si las bases no se pueden igualar, se usan logaritmos.",
+"Resolver (a) 3^(5x−8) = 9^(x+2) y (b) 27^(1−x) = 9^(x−2).",
+"(a) 9 = 3², así que 3^(5x−8) = 3^(2x+4). Igualar exponentes: 5x − 8 = 2x + 4 → 3x = 12 → x = 4.<br>(b) 27 = 3³ y 9 = 3²: 3^(3−3x) = 3^(2x−4) → 3 − 3x = 2x − 4 → 7 = 5x → x = 7/5."],
+"interes":["El <b>interés compuesto</b> hace que los intereses ganados también generen intereses. La fórmula es A = P(1 + r/n)^(nt), donde A es la cantidad después de t años, P el capital inicial, r la tasa anual en decimal, n el número de periodos de capitalización por año y t los años de inversión. Es una función exponencial del tiempo: cuanto más largo el plazo, más rápido crece.",
+"Se invierten Q1,000 al 9% capitalizado mensualmente. Hallar la cantidad después de 5, 10 y 15 años.",
+"Datos: P = 1000, r = 0.09, n = 12; el factor mensual es 1 + 0.09/12 = 1.0075.<br>5 años: A = 1000(1.0075)⁶⁰ ≈ Q1,565.68.<br>10 años: A = 1000(1.0075)¹²⁰ ≈ Q2,451.36.<br>15 años: A = 1000(1.0075)¹⁸⁰ ≈ Q3,838.04."],
+"natural":["La <b>función exponencial natural</b> es f(x) = eˣ, con e ≈ 2.71828 (número de Euler, matemático suizo del siglo XVIII). Es la única función igual a su propia derivada; su dominio y rango son (−∞, ∞) y (0, ∞), pasa por (0, 1), es creciente y su inversa es ln x. Modela el crecimiento o decaimiento continuo: q(t) = q₀·e^(rt), con q₀ cantidad inicial, r la tasa (positiva si crece, negativa si decrece) y t el tiempo.",
+"Una ciudad tenía 153,800 habitantes en 1970 y crece continuamente 5% anual. Predecir su población en 2020.",
+"Datos: q₀ = 153,800; r = 0.05; t = 2020 − 1970 = 50.<br>P = 153,800·e^(0.05·50) = 153,800·e^2.5.<br>e^2.5 ≈ 12.1825 → P ≈ 1,873,667 habitantes."],
+"logaritmica":["La <b>función logarítmica</b> f(x) = logₐ(x), con a &gt; 0 y a ≠ 1, es la inversa de la exponencial de base a: y = logₐ x ⇔ aʸ = x. Se lee «logaritmo de x en base a». Dominio (0, ∞); rango (−∞, ∞); asíntota vertical x = 0; pasa por (1, 0). Es creciente si a &gt; 1 y decreciente si 0 &lt; a &lt; 1. No existen logaritmos de números negativos ni de cero.",
+"Evaluar (a) log₁₀100, (b) log₍₁/₂₎32, (c) log₉3, (d) log₇1, (e) log₃(−2), y graficar log₃x con una tabla.",
+"(a) 10² = 100 → 2.  (b) (1/2)⁻⁵ = 32 → −5.  (c) 9^(1/2) = 3 → 1/2.  (d) 7⁰ = 1 → 0.  (e) 3ˣ = −2 no tiene solución: no existe.<br>Tabla de log₃x: x = 1/9, 1/3, 1, 3, 9 → −2, −1, 0, 1, 2. La curva crece despacio y se pega al eje y."],
+"ec-log":["Una <b>ecuación logarítmica</b> tiene la incógnita dentro de un logaritmo. Propiedades: logₐ1 = 0; logₐa = 1; logₐ(xy) = logₐx + logₐy; logₐ(x/y) = logₐx − logₐy; logₐxⁿ = n·logₐx; logₐ(ⁿ√x) = (1/n)logₐx. Método: combinar logaritmos, pasar a forma exponencial, resolver y <b>comprobar</b> que cada argumento original sea positivo, pues las raíces que lo violan se descartan.",
+"Resolver (a) log₂(2x + 4) = 3 y (b) log₁₀x + log₁₀(x − 3) = 1.",
+"(a) 2x + 4 = 2³ = 8 → 2x = 4 → x = 2. Comprobación: log₂8 = 3 ✓.<br>(b) log₁₀[x(x − 3)] = 1 → x(x − 3) = 10 → x² − 3x − 10 = 0 → (x − 5)(x + 2) = 0.<br>x = −2 hace negativo el argumento de log x: se descarta. Solución: x = 5."],
+"cambio":["El <b>logaritmo común</b> es log x = log₁₀x y el <b>natural</b> es ln x = logₑx. Formas equivalentes: log x = 2 ⇔ 10² = x; ln x = 2 ⇔ e² = x. <b>Cambio de base:</b> logₐb = log b / log a = ln b / ln a (no es log b − log a ni log(b/a)). Para ecuaciones exponenciales con bases distintas se aplica logaritmo a ambos lados: los exponentes bajan como multiplicadores.",
+"Hallar (a) x si ln x = 4.7, (b) x si 3ˣ = 21, (c) 5^(2x+1) = 6^(x−2), (d) log₂5.",
+"(a) x = e⁴·⁷ ≈ 109.95.<br>(b) x·log 3 = log 21 → x = log 21/log 3 ≈ 2.77.<br>(c) (2x + 1)ln 5 = (x − 2)ln 6 → 2x·ln5 − x·ln6 = −2ln6 − ln5 → x ≈ −5.193/1.427 ≈ −3.64.<br>(d) log₂5 = log 5/log 2 ≈ 0.6990/0.3010 ≈ 2.32."],
+"angulos":["Un <b>ángulo</b> es la porción de plano entre dos semirrectas con el mismo origen. Tipos: agudo (&lt; 90°), recto (90°), obtuso (entre 90° y 180°), llano (180°), completo (360°). Dos ángulos son <b>coterminales</b> si, en posición estándar, comparten lado inicial y terminal: difieren en múltiplos de 360° (2π rad). Complementarios suman 90°; suplementarios, 180°. Un grado se divide en 60 minutos (′) y un minuto en 60 segundos (″). Un <b>radián</b> es el ángulo central que abarca un arco igual al radio: 180° = π rad.",
+"(a) Pasar 73.26° a grados, minutos y segundos. (b) Pasar 3 rad a grados, minutos y segundos. (c) Dar dos ángulos coterminales de 60°.",
+"(a) 0.26·60 = 15.6′ → 15′; 0.6·60 = 36″. Resultado: 73°15′36″.<br>(b) 3·(180°/π) ≈ 171.8873°; 0.8873·60 = 53.24′ → 53′; 0.24·60 ≈ 14.28″. Resultado: 171°53′14.28″.<br>(c) 60° + 360° = 420° y 60° − 360° = −300°."],
+"arco":["Si un arco de longitud s en un círculo de radio r subtiende un ángulo central de θ <b>radianes</b>, la <b>longitud de arco</b> es s = r·θ. El <b>área del sector circular</b> determinado por θ es A = ½·r²·θ. Ambas fórmulas exigen θ en radianes; si viene en grados se convierte multiplicando por π/180°.",
+"Un arco de 10 cm en un círculo de 4 cm de radio. Hallar (a) el ángulo en grados y (b) el área del sector.",
+"(a) θ = s/r = 10/4 = 2.5 rad; en grados: 2.5·(180°/π) ≈ 143.24°.<br>(b) A = ½·(4)²·2.5 = ½·16·2.5 = 20 cm²."],
+"trig":["Las <b>funciones trigonométricas</b> relacionan un ángulo agudo de un triángulo rectángulo con las razones entre sus lados: sen θ = cateto opuesto/hipotenusa; cos θ = cateto adyacente/hipotenusa; tan θ = opuesto/adyacente; y sus recíprocas csc θ = 1/sen θ, sec θ = 1/cos θ, cot θ = 1/tan θ. Se usan para calcular alturas y distancias inaccesibles a partir de un ángulo y un lado conocido.",
+"(a) A 25 pies de la base de un asta, el ángulo hasta su extremo es 30°: hallar la altura h. (b) El monte Fuji mide 12,400 pies y se ve su cumbre con un ángulo de 30°: hallar la distancia a la cima.",
+"(a) tan 30° = h/25 → h = 25·tan 30° ≈ 14.43 pies.<br>(b) La distancia a la cima es la hipotenusa: sen 30° = 12,400/d → d = 12,400/0.5 = 24,800 pies."],
+"identidades":["Una <b>identidad trigonométrica</b> es una igualdad cierta para todos los valores donde está definida. Básicas: de cociente tan θ = sen θ/cos θ y cot θ = cos θ/sen θ; recíprocas; de Pitágoras sen²θ + cos²θ = 1, 1 + tan²θ = sec²θ, 1 + cot²θ = csc²θ; de cofunción sen 30° = cos 60°, tan 40° = cot 50°. Para <b>demostrar</b> una identidad se trabaja un lado (normalmente el más complicado) hasta llegar al otro, escribiendo todo en seno y coseno.",
+"Demostrar (sec θ + tan θ)(1 − sen θ) = cos θ.",
+"Escribir en seno y coseno: (1/cos θ + sen θ/cos θ)(1 − sen θ) = [(1 + sen θ)/cos θ](1 − sen θ).<br>Multiplicar: (1 − sen²θ)/cos θ.<br>Usar sen²θ + cos²θ = 1: 1 − sen²θ = cos²θ → cos²θ/cos θ = cos θ. ∎"]
+,
+"negativos":["Los ángulos negativos se miden en sentido horario. Sus funciones se relacionan con las de los ángulos positivos: sen(−θ) = −sen θ, csc(−θ) = −csc θ, tan(−θ) = −tan θ, cot(−θ) = −cot θ, cos(−θ) = cos θ, sec(−θ) = sec θ. <b>Teorema:</b> coseno y secante son funciones <b>pares</b>; seno, cosecante, tangente y cotangente son <b>impares</b>. Estas reglas sirven para simplificar expresiones y verificar identidades.",
+"Verificar la igualdad sen(−x)·tan(−x) + cos(−x) = sec x.",
+"Aplicar paridad: (−sen x)(−tan x) + cos x = sen x·tan x + cos x.<br>Escribir tan x = sen x/cos x: sen²x/cos x + cos x = (sen²x + cos²x)/cos x.<br>Como sen²x + cos²x = 1: 1/cos x = sec x. ∎"],
+"referencia":["Sea θ un ángulo no cuadrantal en posición estándar. Su <b>ángulo de referencia</b> θ_R es el ángulo agudo que el lado terminal de θ forma con el eje x. Sirve para evaluar funciones de cualquier ángulo: f(θ) = ± f(θ_R), donde el signo depende del cuadrante. Cálculo según el cuadrante (θ entre 0° y 360°): I: θ_R = θ; II: 180° − θ; III: θ − 180°; IV: 360° − θ. Si θ es negativo o mayor que 360°, primero se busca un ángulo coterminal.",
+"Hallar el ángulo de referencia de (a) 315°, (b) −240°, (c) 5π/6.",
+"(a) 315° está en el cuadrante IV: θ_R = 360° − 315° = 45°.<br>(b) −240° + 360° = 120° (cuadrante II): θ_R = 180° − 120° = 60°.<br>(c) 5π/6 está en el cuadrante II: θ_R = π − 5π/6 = π/6."],
+"graficas":["Las gráficas de seno y coseno son ondas periódicas que oscilan entre −1 y 1. Para y = a·sen(bx + c) (o con coseno): la <b>amplitud</b> es |a| (altura máxima desde el eje); el <b>periodo</b> es 2π/|b| (distancia horizontal de un ciclo completo); el <b>desplazamiento de fase</b> es −c/b (corrimiento horizontal); un ciclo se halla resolviendo 0 ≤ bx + c ≤ 2π. Si a es negativo la gráfica se refleja respecto al eje x, y sumar una constante la desplaza verticalmente.",
+"Hallar amplitud, periodo, fase e intervalo de un ciclo de (a) y = 3 sen(2x + π/2) y (b) y = sen(x − π/2).",
+"(a) Amplitud 3; periodo 2π/2 = π; fase −(π/2)/2 = −π/4. Ciclo: 0 ≤ 2x + π/2 ≤ 2π → −π/4 ≤ x ≤ 3π/4.<br>(b) Amplitud 1; periodo 2π/1 = 2π; fase −(−π/2)/1 = π/2 (a la derecha). Ciclo: 0 ≤ x − π/2 ≤ 2π → π/2 ≤ x ≤ 5π/2."],
+"suma-resta":["Las <b>fórmulas de suma y resta</b> permiten hallar valores exactos de ángulos que se escriben como suma o diferencia de ángulos conocidos (30°, 45°, 60°…): cos(α + β) = cos α cos β − sen α sen β; cos(α − β) = cos α cos β + sen α sen β; sen(α + β) = sen α cos β + cos α sen β; sen(α − β) = sen α cos β − cos α sen β; tan(α ± β) = (tan α ± tan β)/(1 ∓ tan α tan β). Las de cofunción relacionan sen y cos de ángulos complementarios.",
+"Hallar los valores exactos de cos, sen y tan de 7π/12.",
+"Escribir 7π/12 = 4π/12 + 3π/12 = π/3 + π/4.<br>cos: cos(π/3)cos(π/4) − sen(π/3)sen(π/4) = (1/2)(√2/2) − (√3/2)(√2/2) = (√2 − √6)/4 ≈ −0.2588.<br>sen: sen(π/3)cos(π/4) + cos(π/3)sen(π/4) = (√6 + √2)/4 ≈ 0.9659.<br>tan: (√3 + 1)/(1 − √3·1) = −(2 + √3) ≈ −3.732."],
+"multiples":["<b>Ángulo doble:</b> sen 2θ = 2 sen θ cos θ; cos 2θ = cos²θ − sen²θ = 1 − 2sen²θ = 2cos²θ − 1; tan 2θ = 2tan θ/(1 − tan²θ). <b>Reducción de potencias</b> (semiángulo): sen²θ = (1 − cos 2θ)/2; cos²θ = (1 + cos 2θ)/2; tan²θ = (1 − cos 2θ)/(1 + cos 2θ). <b>Semiángulo:</b> sen(θ/2) = ±√((1 − cos θ)/2); cos(θ/2) = ±√((1 + cos θ)/2); tan(θ/2) = (1 − cos θ)/sen θ; el signo lo da el cuadrante de θ/2.",
+"(a) Si sen θ = 4/5 con θ agudo, hallar sen 2θ y cos 2θ. (b) Expresar cos 3θ solo con cos θ.",
+"(a) cos θ = √(1 − 16/25) = 3/5. sen 2θ = 2(4/5)(3/5) = 24/25. cos 2θ = (3/5)² − (4/5)² = −7/25.<br>(b) cos 3θ = cos(2θ + θ) = cos 2θ cos θ − sen 2θ sen θ = (2cos²θ − 1)cos θ − 2sen²θ cos θ.<br>Con sen²θ = 1 − cos²θ: 2cos³θ − cos θ − 2cos θ + 2cos³θ = 4cos³θ − 3cos θ."],
+"prod-suma":["Las <b>fórmulas de producto a suma</b> convierten productos de senos y cosenos en sumas (útiles después en integración): sen α cos β = ½[sen(α+β) + sen(α−β)]; cos α sen β = ½[sen(α+β) − sen(α−β)]; cos α cos β = ½[cos(α+β) + cos(α−β)]; sen α sen β = ½[cos(α−β) − cos(α+β)]. Las de <b>suma a producto</b> hacen lo inverso: sen α + sen β = 2 sen((α+β)/2) cos((α−β)/2); sen α − sen β = 2 cos((α+β)/2) sen((α−β)/2); cos α + cos β = 2 cos((α+β)/2) cos((α−β)/2); cos α − cos β = −2 sen((α+β)/2) sen((α−β)/2).",
+"(a) Expresar sen 3x·sen x como suma. (b) Expresar sen 5x − sen 3x como producto. (c) Verificar (sen 3t + sen 5t)/(cos 3t − cos 5t) = cot t.",
+"(a) ½[cos(3x − x) − cos(3x + x)] = ½(cos 2x − cos 4x).<br>(b) 2cos((5x+3x)/2)·sen((5x−3x)/2) = 2cos 4x·sen x.<br>(c) Numerador: 2 sen 4t cos(−t) = 2 sen 4t cos t. Denominador: −2 sen 4t sen(−t) = 2 sen 4t sen t. Cociente: cos t/sen t = cot t. ∎"],
+"senos":["La <b>ley de senos</b> relaciona los lados de un triángulo oblicuángulo (sin ángulo recto) con los senos de sus ángulos opuestos: a/sen α = b/sen β = c/sen γ, con α + β + γ = 180°. Se usa cuando se conocen dos ángulos y un lado (ALA, AAL) o dos lados y un ángulo opuesto a uno de ellos (LLA). El caso LLA puede ser ambiguo: dar un triángulo, dos o ninguno (cuando el seno calculado sale mayor que 1).",
+"(a) Con α = 48°, γ = 57° y b = 47, hallar β, a y c. (b) Con α = 67°, a = 100 y c = 125, ¿existe el triángulo? (c) Un poste inclinado 9° lejos del sol, con elevación solar 64° y sombra de 21 pies: hallar su largo.",
+"(a) β = 180° − 48° − 57° = 75°. a = 47·sen 48°/sen 75° ≈ 36.16; c = 47·sen 57°/sen 75° ≈ 40.81.<br>(b) sen γ = 125·sen 67°/100 ≈ 1.15 &gt; 1: imposible, no existe el triángulo.<br>(c) Ángulos: 90° − 9° = 81° y 180° − 81° − 64° = 35°. L/sen 64° = 21/sen 35° → L = 21·sen 64°/sen 35° ≈ 32.91 pies."],
+"cosenos":["La <b>ley de cosenos</b> generaliza el teorema de Pitágoras: el cuadrado de un lado es la suma de los cuadrados de los otros dos menos el doble producto de ellos por el coseno del ángulo entre ambos: a² = b² + c² − 2bc cos α; b² = a² + c² − 2ac cos β; c² = a² + b² − 2ab cos γ. Se usa cuando se conocen los tres lados (LLL) o dos lados y el ángulo entre ellos (LAL). Si el ángulo es 90°, se reduce a Pitágoras.",
+"(a) Resolver el triángulo con a = 90, b = 70, c = 40. (b) Dos puntos A y B se ven desde un observador a 50 m y 70 m con un ángulo de 70° entre ellos: hallar AB. (c) Poste de 40 pies en una ladera de 17°: cable hasta un punto a 72 pies ladera abajo.",
+"(a) cos α = (70² + 40² − 90²)/(2·70·40) = −1600/5600 ≈ −0.2857 → α ≈ 106.60°. cos β = (90² + 40² − 70²)/(2·90·40) = 4800/7200 ≈ 0.6667 → β ≈ 48.19°. γ = 180° − 106.60° − 48.19° ≈ 25.21°.<br>(b) AB² = 50² + 70² − 2·50·70·cos 70° ≈ 5005.9 → AB ≈ 70.75 m.<br>(c) El ángulo en la base es 90° + 17° = 107°: d² = 72² + 40² − 2·72·40·cos 107° ≈ 8468 → d ≈ 92.02 pies."],
+"area-tri":["Áreas de un triángulo: la básica A = (b·h)/2; con dos lados y el ángulo entre ellos, A = ½·a·b·sen γ; equilátero de lado b: A = (√3/4)·b²; y la <b>fórmula de Herón</b> (Herón de Alejandría) con los tres lados: A = √(s(s − a)(s − b)(s − c)), donde s = (a + b + c)/2 es el semiperímetro.",
+"Hallar el área de (a) un triángulo con a = 5 cm, b = 3 cm y α = 37°; (b) un triángulo de lados 125, 160 y 225 cm; (c) un triángulo de lados 4, 5 y 7 m.",
+"(a) Ley de senos: sen β = 3·sen 37°/5 ≈ 0.361 → β ≈ 21.17°; γ = 180° − 37° − 21.17° ≈ 121.83°. A = ½(5)(3)sen 121.83° ≈ 6.37 cm².<br>(b) s = 255; A = √(255·130·95·30) ≈ 9,720 cm².<br>(c) s = 8; A = √(8·4·3·1) = √96 ≈ 9.80 m²."],
+"vectores":["Un <b>vector</b> es un segmento de recta orientado con <b>magnitud</b> (longitud), <b>dirección</b> (ángulo con un eje) y <b>sentido</b> (punta de flecha), con un punto de aplicación. En componentes a = ⟨a₁, a₂⟩, su magnitud es |a| = √(a₁² + a₂²). Suma: ⟨a₁ + b₁, a₂ + b₂⟩. Producto por escalar: m·a = ⟨ma₁, ma₂⟩. Vectores unitarios: i = ⟨1, 0⟩ y j = ⟨0, 1⟩. Componentes: a₁ = |a|cos θ y a₂ = |a|sen θ. La suma es conmutativa y asociativa y distribuye con escalares.",
+"(a) Con a = ⟨5, −4⟩ y b = ⟨−3, 2⟩ hallar 2a − 3b y a + 5b. (b) Dos fuerzas de 5 kg a 20° NE y de 8 kg a 65° NE actúan sobre un punto: hallar la resultante.",
+"(a) 2a − 3b = ⟨10, −8⟩ − ⟨−9, 6⟩ = ⟨19, −14⟩.  a + 5b = ⟨5, −4⟩ + ⟨−15, 10⟩ = ⟨−10, 6⟩.<br>(b) Medidos desde el eje x (este): 70° y 25°. Fuerza 1: ⟨5cos 70°, 5sen 70°⟩ ≈ ⟨1.71, 4.70⟩. Fuerza 2: ⟨8cos 25°, 8sen 25°⟩ ≈ ⟨7.25, 3.38⟩.<br>R ≈ ⟨8.96, 8.08⟩; |R| = √(8.96² + 8.08²) ≈ 12.07 kg; θ = tan⁻¹(8.08/8.96) ≈ 42.0° sobre el eje x (unos 48° al este del norte)."],
+"punto":["El <b>producto punto</b> (escalar o interno) de dos vectores da un número real: a·b = a₁b₁ + a₂b₂ = |a||b|cos θ, donde θ es el ángulo entre ellos. Propiedades: a·a = |a|²; a·b = b·a; a·(b + c) = a·b + a·c; (ma)·b = m(a·b); 0·a = 0. Si los vectores son paralelos, θ = 0 o π; si son ortogonales (perpendiculares), θ = π/2 y a·b = 0. El ángulo se halla con θ = cos⁻¹(a·b/(|a||b|)). Aplicaciones: proyección de un vector sobre otro y trabajo.",
+"(a) Calcular ⟨−5, 3⟩·⟨2, 6⟩. (b) Hallar el ángulo entre a = ⟨4, −3⟩ y b = ⟨1, 2⟩. (c) ¿Son ortogonales ⟨2, 3⟩ y ⟨6, −4⟩?",
+"(a) (−5)(2) + (3)(6) = −10 + 18 = 8.<br>(b) a·b = 4 − 6 = −2; |a| = 5; |b| = √5 ≈ 2.236. cos θ = −2/(5·2.236) ≈ −0.179 → θ ≈ 100.3°.<br>(c) (2)(6) + (3)(−4) = 12 − 12 = 0 → son ortogonales (θ = 90°)."],
+"cruz":["El <b>producto cruz</b> (vectorial) es una operación entre dos vectores de un espacio tridimensional cuyo resultado es un <b>vector</b> perpendicular a ambos; su magnitud es |a||b|sen θ y es el área del paralelogramo que forman. Con a = ⟨a₁, a₂, a₃⟩ y b = ⟨b₁, b₂, b₃⟩: a × b = (a₂b₃ − a₃b₂)i − (a₁b₃ − a₃b₁)j + (a₁b₂ − a₂b₁)k, que es el determinante con filas i, j, k / a / b. No es conmutativo: a × b = −(b × a). Comparación: el producto punto da un escalar (cualquier dimensión, usa cos 90° para perpendiculares, mide trabajo); el cruz da un vector (3D, usa sen 90° para perpendiculares; aparece en la fuerza magnética).",
+"Calcular a × b con a = ⟨2, −1, 3⟩ y b = ⟨1, 4, −2⟩.",
+"i: (−1)(−2) − (3)(4) = 2 − 12 = −10.<br>j: −[(2)(−2) − (3)(1)] = −(−4 − 3) = 7.<br>k: (2)(4) − (−1)(1) = 8 + 1 = 9.<br>a × b = −10i + 7j + 9k."],
+"complejos":["Los <b>números complejos</b> extienden los reales y permiten resolver ecuaciones sin solución real: z = a + bi, con a la <b>parte real</b>, bi la <b>parte imaginaria</b> e i la unidad imaginaria, i² = −1. Se grafican en el plano complejo (eje real horizontal, eje imaginario vertical). El <b>valor absoluto</b> o módulo es r = √(a² + b²) y el ángulo θ cumple tan θ = b/a (ojo con el cuadrante). Formas: <b>trigonométrica</b> z = r(cos θ + i sen θ) y <b>exponencial</b> z = r·e^(iθ), pues cos θ + i sen θ = e^(iθ).",
+"(a) Expresar z = 2 + 7i y (b) z = 3 − 2i en forma trigonométrica. (c) Regresar (a) a la forma a + bi.",
+"(a) r = √(4 + 49) = √53 ≈ 7.28; θ = tan⁻¹(7/2) ≈ 1.29 rad. z ≈ 7.28(cos 1.29 + i sen 1.29).<br>(b) r = √(9 + 4) = √13 ≈ 3.61; θ = tan⁻¹(−2/3) ≈ −0.59 rad (cuadrante IV). z ≈ 3.61(cos(−0.59) + i sen(−0.59)).<br>(c) 7.28·cos 1.29 ≈ 2.0 y 7.28·sen 1.29 ≈ 7.0, así que z ≈ 2 + 7i."],
+"demoivre":["El <b>teorema de De Moivre</b> conecta los números complejos con la trigonometría: [r(cos θ + i sen θ)]ⁿ = rⁿ(cos nθ + i sen nθ). Permite calcular potencias de un complejo elevando el módulo a la n y multiplicando el ángulo por n, y de forma análoga las <b>raíces n-ésimas</b>. Pasos: (1) pasar z a forma trigonométrica, (2) aplicar la fórmula, (3) evaluar seno y coseno y regresar a la forma a + bi.",
+"Calcular (a) (1 + i)²⁰ y (b) [2(cos 30° + i sen 30°)]³.",
+"(a) r = √2 y θ = tan⁻¹(1/1) = 45°. (1 + i)²⁰ = (√2)²⁰(cos 900° + i sen 900°) = 1024(cos 180° + i sen 180°) = 1024(−1) = −1024.<br>(b) 2³[cos(3·30°) + i sen(3·30°)] = 8(cos 90° + i sen 90°) = 8(0 + i) = 8i."]
+};
+
+var FN=['sen','cos','tan','log','ln','cot','sec','csc','lím','cm','kg','pies','si'];
+function nw(t){return (t.match(/[A-Za-zÁ-úñ]{3,}/g)||[]).filter(function(w){return FN.indexOf(w.toLowerCase())<0}).length;}
+function isM(t){var w=t.replace(/[A-Za-zÁ-úñ]{1,3}(?=[\s(⁰-⁹₀-₉²³]|$)/g,'').match(/[A-Za-zÁ-úñ]{4,}/g);return !w||w.length<1;}
+function planteo(t){
+ var parts=t.split(/\s+(?=\([a-e]\)\s)|^(?=\([a-e]\)\s)/).filter(Boolean),h='';
+ if(parts.length<2){return '<div class="ex-b"><p class="tx" style="margin:4px 0">'+t+'</p></div>';}
+ parts=parts.length>1?parts:parts;var intro='';
+ if(!/^\([a-e]\)/.test(parts[0])){intro=parts.shift();}
+ h='<div class="ex-b">'+(intro?'<p class="tx">'+intro.replace(/[:.,]?\s*$/,':')+'</p>':'');
+ parts.slice(0,1).forEach(function(q){var m=q.match(/^\(([a-e])\)\s*(.*)$/);var body=m[2].replace(/[,;.]?\s*(y|e)?\s*$/,'').replace(/[,.]\s*$/,'');
+  h+='<div class="pt"><span class="m" style="'+(nw(body)>=4?'font-family:inherit;font-size:1rem':'')+'">'+body+'</span></div>';});
+ return h+'</div>';
+}
+function sentences(line){
+ var out=[];line.split(/\s{2,}/).forEach(function(seg){seg.split(/(?:\.|(?<!&gt|&lt|&amp);)(?=\s+\S)/).forEach(function(x){x=x.trim();if(x)out.push(x.replace(/\.$/,''));});});
+ return out;
+}
+function solu(t){
+ var seen=false,stop=false,lines=t.split('<br>'),h='<div class="ex-b">',n=0,open=false,fin='';
+ lines.forEach(function(L){
+  if(stop)return;
+  var g=L.match(/^\(([a-e])\)\s*(.*)$/);
+  var rest=L;
+  if(g){if(seen){stop=true;return;}seen=true;rest=g[2];}
+  // varios incisos en una misma línea
+  var multi=rest.split(/\s{2,}(?=\([a-e]\)\s)/);
+  multi.forEach(function(mm,mi){
+   var gg=mm.match(/^\(([a-e])\)\s*(.*)$/);
+   if(gg){if(mi>0){stop=true;return;}mm=gg[2];}
+   sentences(mm).forEach(function(x){
+    var pre=[],m2;
+    while((m2=x.match(/^([^=→:]{3,}?):\s+(.+)$/))&&nw(m2[1])>=0&&!/[=]/.test(m2[1])){pre.push(m2[1]);x=m2[2];}
+    var segs=nw(x)>=5?[x]:x.split(/\s*→\s*/);
+    n++;
+    h+='<div class="st"><span class="n">'+n+'</span><div class="tx">';
+    pre.forEach(function(q){h+='<div style="margin:2px 0 4px"><b>'+q+':</b></div>';});
+    segs.forEach(function(q,qi){
+     if(nw(q)>=2)h+='<div style="margin:4px 0">'+(qi>0?'<span style="color:var(--mu)">⇒ </span>':'')+q+(qi===segs.length-1&&!pre.length&&segs.length===1?'.':'')+'</div>';
+     else h+='<div class="mt'+(qi>0?' arrow':'')+'">'+q+'</div>';
+    });
+    h+='</div></div>';
+   });
+  });
+ });
+ return h+'</div>';
+}
 var ix="",bd="",n=0;
 D.forEach(function(g,gi){
  var id="s"+(gi+1);
@@ -102,7 +309,10 @@ D.forEach(function(g,gi){
  g[2].forEach(function(t){
   n++;
   ix+='<a href="#'+t[0]+'">'+n+'. '+t[1]+'</a>';
-  bd+='<article class="t" id="'+t[0]+'"><h3>'+n+'. '+t[1]+'</h3><p><span class="l">Definición:</span> '+t[2]+'</p><p class="e"><span class="l">Ejemplo:</span> '+t[3]+'</p><a class="b" href="#indice">↑ Volver al índice</a></article>';
+  var o=N[t[0]],h='<article class="t" id="'+t[0]+'"><h3>'+n+'. '+t[1]+'</h3>';
+  if(o){h+='<p><span class="l">Definición:</span> '+o[0]+'</p><div class="ex"><div class="ex-h">EJEMPLO · PLANTEAMIENTO</div>'+planteo(o[1])+'</div><div class="ex sol"><div class="ex-h">SOLUCIÓN · PASO A PASO</div>'+solu(o[2])+'</div>';}
+  else{h+='<p><span class="l">Definición:</span> '+t[2]+'</p><p class="e"><span class="l">Ejemplo:</span> '+t[3]+'</p>';}
+  bd+=h+'<a class="b" href="#indice">↑ Volver al índice</a></article>';
  });
 });
 document.getElementById("ix").innerHTML=ix;
